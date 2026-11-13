@@ -1,0 +1,35 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pytest_cache/
+
+# Environments
+.venv/
+venv/
+ENV/
+env/
+
+# Node / Vite
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Database
+*.sqlite
+*.db
+agricredit/backend/instance/*.db
+
+# Uploads
+agricredit/backend/app/uploads/*
+!agricredit/backend/app/uploads/.gitkeep
+
+# Environment variables
+.env
+.env.production
+
+# IDE & OS
+.DS_Store
+.vscode/
+.idea/

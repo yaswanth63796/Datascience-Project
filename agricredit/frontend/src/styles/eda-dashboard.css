@@ -1,0 +1,704 @@
+/* ==========================================================================
+   AgriCredit Exploratory Data Analysis (EDA) Dashboard Styles
+   Agricultural Banking & Agro-Economic Data Science Theme
+   ========================================================================== */
+
+.eda-dashboard-page {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 28px 24px 64px;
+  color: var(--text-main);
+}
+
+/* -------------------------------------------------------------
+   Page Header
+   ------------------------------------------------------------- */
+.eda-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.eda-header-left {
+  max-width: 780px;
+}
+
+.eda-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.eda-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.eda-badge-benchmark {
+  background-color: var(--forest-100);
+  color: var(--forest-800);
+  border: 1px solid var(--forest-300);
+}
+
+.eda-badge-database {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+}
+
+.eda-badge-synthetic {
+  background-color: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+
+.eda-page-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--forest-900);
+  line-height: 1.2;
+  margin: 0 0 6px 0;
+}
+
+.eda-page-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.eda-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-refresh {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  color: var(--forest-800);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-refresh:hover:not(:disabled) {
+  background-color: var(--forest-50);
+  border-color: var(--forest-500);
+  color: var(--forest-900);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-refresh:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.spin-icon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* -------------------------------------------------------------
+   Filter Control Bar
+   ------------------------------------------------------------- */
+.eda-filters-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  margin-bottom: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.eda-filters-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.eda-filters-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.eda-filter-label-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--forest-900);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.eda-filter-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.eda-filter-item span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.eda-select {
+  padding: 7px 14px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-main);
+  background-color: var(--bg-surface-subtle);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  outline: none;
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+}
+
+.eda-select:focus {
+  border-color: var(--forest-600);
+  box-shadow: 0 0 0 3px rgba(64, 145, 108, 0.15);
+}
+
+.btn-reset-filters {
+  background: none;
+  border: none;
+  color: var(--terracotta);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 4px 6px;
+}
+
+.btn-reset-filters:hover {
+  color: #c0392b;
+}
+
+.eda-data-status-info {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* -------------------------------------------------------------
+   Summary Metrics Cards Grid
+   ------------------------------------------------------------- */
+.eda-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 18px;
+  margin-bottom: 32px;
+}
+
+.eda-stat-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.eda-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.eda-stat-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--forest-600), var(--forest-400));
+}
+
+.eda-stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--forest-50);
+  color: var(--forest-700);
+  flex-shrink: 0;
+}
+
+.eda-stat-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.eda-stat-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+
+.eda-stat-value {
+  font-family: var(--font-heading);
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--forest-900);
+  line-height: 1.1;
+}
+
+.eda-stat-subtext {
+  font-size: 0.74rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+/* -------------------------------------------------------------
+   Section Dividers
+   ------------------------------------------------------------- */
+.eda-section-header {
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--forest-100);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.eda-section-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--forest-800);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.eda-section-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 4px 0 0;
+}
+
+/* -------------------------------------------------------------
+   Charts Grid
+   ------------------------------------------------------------- */
+.eda-charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.eda-chart-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow var(--transition-fast);
+}
+
+.eda-chart-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.eda-chart-card-full {
+  grid-column: 1 / -1;
+}
+
+.eda-chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  gap: 12px;
+}
+
+.eda-chart-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--forest-900);
+  margin: 0 0 4px 0;
+}
+
+.eda-chart-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.eda-chart-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  background-color: var(--forest-50);
+  color: var(--forest-700);
+  border: 1px solid var(--forest-200);
+  white-space: nowrap;
+}
+
+.eda-chart-container {
+  width: 100%;
+  height: 310px;
+  position: relative;
+}
+
+.eda-chart-container-tall {
+  height: 380px;
+}
+
+/* -------------------------------------------------------------
+   Chart Empty & Fallback States
+   ------------------------------------------------------------- */
+.eda-empty-state {
+  height: 100%;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  background-color: var(--bg-surface-subtle);
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--border-medium);
+}
+
+.eda-empty-icon {
+  color: var(--harvest-amber);
+  margin-bottom: 12px;
+}
+
+.eda-empty-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+.eda-empty-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  max-width: 360px;
+  line-height: 1.4;
+}
+
+/* -------------------------------------------------------------
+   Custom Interactive Tooltip
+   ------------------------------------------------------------- */
+.eda-custom-tooltip {
+  background: rgba(16, 36, 26, 0.92);
+  color: #ffffff;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  font-size: 0.82rem;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.eda-tooltip-title {
+  font-weight: 700;
+  font-size: 0.88rem;
+  margin-bottom: 6px;
+  color: var(--wheat-gold);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 4px;
+}
+
+.eda-tooltip-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 3px;
+}
+
+.eda-tooltip-label {
+  color: #cbd5cb;
+}
+
+.eda-tooltip-val {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* -------------------------------------------------------------
+   Correlation Heatmap Grid
+   ------------------------------------------------------------- */
+.eda-heatmap-wrapper {
+  overflow-x: auto;
+  padding-bottom: 12px;
+}
+
+.eda-heatmap-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 4px;
+  font-size: 0.76rem;
+  min-width: 700px;
+}
+
+.eda-heatmap-corner {
+  background: transparent;
+}
+
+.eda-heatmap-col-header {
+  padding: 8px 6px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--text-secondary);
+  writing-mode: horizontal-tb;
+  font-size: 0.72rem;
+  max-width: 85px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.eda-heatmap-row-header {
+  padding: 6px 10px;
+  text-align: right;
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 0.74rem;
+  white-space: nowrap;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.eda-heatmap-cell {
+  width: 58px;
+  height: 38px;
+  text-align: center;
+  font-family: monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: transform var(--transition-fast), outline var(--transition-fast);
+  user-select: none;
+}
+
+.eda-heatmap-cell:hover {
+  transform: scale(1.15);
+  z-index: 5;
+  outline: 2px solid var(--forest-900);
+}
+
+.eda-heatmap-legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 14px;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+.eda-heatmap-gradient-bar {
+  width: 180px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(to right, #e76f51, #f4a261, #f1f5f2, #74c69d, #1b4332);
+}
+
+/* -------------------------------------------------------------
+   Numerical Summary Table
+   ------------------------------------------------------------- */
+.eda-table-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 36px;
+}
+
+.eda-table-wrapper {
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+}
+
+.eda-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  text-align: left;
+}
+
+.eda-data-table th {
+  background-color: var(--forest-50);
+  color: var(--forest-900);
+  font-weight: 700;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border-medium);
+  white-space: nowrap;
+}
+
+.eda-data-table td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  white-space: nowrap;
+}
+
+.eda-data-table tr:hover {
+  background-color: #fbfdfb;
+}
+
+.eda-table-feature-cell {
+  font-weight: 600;
+  color: var(--forest-800);
+}
+
+.eda-outlier-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-size: 0.74rem;
+  font-weight: 600;
+  background-color: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+
+.eda-clean-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-size: 0.74rem;
+  font-weight: 600;
+  background-color: #f0fdf4;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+}
+
+.eda-table-note {
+  margin-top: 12px;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* -------------------------------------------------------------
+   Loading & Error States
+   ------------------------------------------------------------- */
+.eda-loading-container {
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 16px;
+}
+
+.eda-loading-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--forest-800);
+}
+
+.eda-error-banner {
+  background-color: #fef2f2;
+  border: 1px solid #fca5a5;
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  color: #991b1b;
+}
+
+.eda-error-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* -------------------------------------------------------------
+   Responsive Breakpoints
+   ------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .eda-charts-grid {
+    grid-template-columns: 1fr;
+  }
+  .eda-chart-card-full {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .eda-dashboard-page {
+    padding: 16px 14px 48px;
+  }
+  .eda-page-title {
+    font-size: 1.6rem;
+  }
+  .eda-filters-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .eda-overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .eda-overview-grid {
+    grid-template-columns: 1fr;
+  }
+}

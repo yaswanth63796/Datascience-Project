@@ -1,0 +1,124 @@
+{
+  "model_version": "v1.0-synthetic-rf",
+  "training_date": "2026-10-26 15:32:07 UTC",
+  "dataset_provenance": {
+    "source": "Empirically Calibrated Agricultural Economics Generator (AgriCredit Synthetic V1)",
+    "is_synthetic": true,
+    "sample_count": 3000,
+    "train_count": 2400,
+    "test_count": 600,
+    "positive_class_prevalence": 0.181,
+    "limitations": "Model trained on empirical synthetic data due to banking confidentiality on individual farmer loan NPA accounts. Suitable for pipeline testing and risk factor illustration, not real lending decisions."
+  },
+  "target_definition": {
+    "name": "repayment_difficulty",
+    "description": "Indicator of agricultural loan repayment distress or restructuring over a 12-month crop loan cycle.",
+    "positive_class": 1,
+    "negative_class": 0
+  },
+  "baseline_model": {
+    "model_name": "Logistic Regression (Baseline)",
+    "cv_mean_f1": 0.5927997284851998,
+    "cv_std_f1": 0.019793601273688875,
+    "cv_mean_roc_auc": 0.8458942219432751,
+    "test_accuracy": 0.785,
+    "test_precision": 0.44505494505494503,
+    "test_recall": 0.7431192660550459,
+    "test_f1": 0.5567010309278351,
+    "test_roc_auc": 0.8269960201050093,
+    "confusion_matrix": [
+      [
+        390,
+        101
+      ],
+      [
+        28,
+        81
+      ]
+    ]
+  },
+  "candidate_model": {
+    "model_name": "Random Forest Classifier (Candidate)",
+    "cv_mean_f1": 0.6186302255825851,
+    "cv_std_f1": 0.0434511832702357,
+    "cv_mean_roc_auc": 0.8428514334438388,
+    "test_accuracy": 0.8383333333333334,
+    "test_precision": 0.5483870967741935,
+    "test_recall": 0.6238532110091743,
+    "test_f1": 0.5836909871244635,
+    "test_roc_auc": 0.8297053382910742,
+    "confusion_matrix": [
+      [
+        435,
+        56
+      ],
+      [
+        41,
+        68
+      ]
+    ]
+  },
+  "selected_model": "candidate_model",
+  "feature_importances": [
+    {
+      "feature": "debt_to_annual_income_ratio",
+      "importance": 0.175
+    },
+    {
+      "feature": "surplus_to_loan_ratio",
+      "importance": 0.1469
+    },
+    {
+      "feature": "estimated_crop_surplus",
+      "importance": 0.093
+    },
+    {
+      "feature": "cost_to_revenue_ratio",
+      "importance": 0.0917
+    },
+    {
+      "feature": "other_verified_annual_income",
+      "importance": 0.0876
+    },
+    {
+      "feature": "previous_loan_history_defaulted",
+      "importance": 0.0457
+    },
+    {
+      "feature": "existing_outstanding_debt",
+      "importance": 0.0449
+    },
+    {
+      "feature": "total_seasonal_crop_revenue",
+      "importance": 0.0421
+    },
+    {
+      "feature": "total_seasonal_cultivation_cost",
+      "importance": 0.0348
+    },
+    {
+      "feature": "subsidy_share_of_cost",
+      "importance": 0.0311
+    },
+    {
+      "feature": "cultivated_land_current_season_acres",
+      "importance": 0.0268
+    },
+    {
+      "feature": "total_landholding_acres",
+      "importance": 0.0262
+    },
+    {
+      "feature": "farming_experience_years",
+      "importance": 0.0262
+    },
+    {
+      "feature": "cultivated_ratio",
+      "importance": 0.0243
+    },
+    {
+      "feature": "requested_loan_amount",
+      "importance": 0.0235
+    }
+  ]
+}
